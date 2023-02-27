@@ -1,0 +1,31 @@
+@import "../../../index.scss";
+
+.header {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  background-color: $yellow;
+  .header__container {
+    @include container;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $header__links;
+    .container__logo {
+      @include H30;
+    }
+    .container__links {
+      width: 28.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .container__link {
+        @include H18;
+        cursor: pointer;
+      }
+    }
+    .container__phohe {
+      @include H24;
+      cursor: pointer;
+    }
+  }
+}

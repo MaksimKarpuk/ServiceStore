@@ -1,0 +1,64 @@
+@import "../../../index.scss";
+
+.banner {
+  background-color: $yellow;
+  .banner__container {
+    @include container;
+    color: $header__links;
+    display: flex;
+    gap: 10.5rem;
+    .container__info {
+      .container__title {
+        @include H70;
+        max-width: 30rem;
+      }
+      .container__subtitle {
+        @include H30;
+        max-width: 21rem;
+        margin-top: 1.75rem;
+      }
+      input {
+        @include H24;
+        color: $white;
+        background-color: $banner__button;
+        padding: 1rem 6rem;
+        box-sizing: content-box;
+        margin-top: 3rem;
+        cursor: pointer;
+      }
+      .container__advantages {
+        margin-top: 4rem;
+        display: flex;
+        gap: 2.5rem;
+        color: $header__links;
+        .container__advantage {
+          display: flex;
+          gap: 0.75rem;
+          justify-content: center;
+          align-items: center;
+          .container__advantage__image {
+            // max-width: 2.5rem;
+            // max-height: 2.5rem;
+            // img {
+            //   width: 100%;
+            //   height: 100%;
+            // }
+          }
+          .container__advantage__text {
+            @include H16;
+            max-width: 8.5rem;
+          }
+        }
+      }
+    }
+    .container__img {
+      max-width: 25.5rem;
+      max-height: 30.3rem;
+      
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

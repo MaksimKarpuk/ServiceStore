@@ -1,0 +1,56 @@
+@import "../../../assets/styles/index.scss";
+
+.container {
+  @include container;
+  min-height: 15rem;
+  .emptyOrders{
+    @include H24;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10rem;
+  }
+  .orders {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    .order {
+      border: 0.0625rem solid $yellow;
+      padding: 2rem;
+      @include H20;
+      .order__title {
+        @include H24;
+        margin: 0 0 1rem 0;
+      }
+      .order__info {
+        margin: 0 0 0.2rem 0;
+      }
+      .order__phone {
+        margin: 0 0 0.2rem 0;
+      }
+      .order__delivery {
+        margin: 0 0 0.2rem 0;
+      }
+      .order__service {
+        margin: 0 0 1rem 0;
+        .order__service_title {
+          margin: 0 0 0.2rem 0;
+        }
+        .order__service_item {
+          @include H16;
+          li {
+            list-style-type: square;
+            list-style-position: inside;
+          }
+        }
+      }
+      .order__deleteBtn{
+        padding: 1rem 3rem;
+        background-color: $yellow;
+        cursor: pointer;
+        display: inline-block;
+      }
+    }
+  }
+}

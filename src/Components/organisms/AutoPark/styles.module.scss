@@ -1,0 +1,74 @@
+@import "../../../index.scss";
+
+.autopark {
+  .autopark__container {
+    @include container;
+    margin-top: 6rem;
+    .container__title {
+      @include H30;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .container__subtitle {
+      @include H24;
+      text-align: center;
+      margin-bottom: 3.75rem;
+    }
+    .container__slider_points {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 6rem;
+      .slider__point {
+        @include H20;
+        padding: 1rem 4rem;
+        border: 0.0625rem solid $autopark__point;
+        cursor: pointer;
+      }
+      .slider__point__active {
+        @include H20;
+        padding: 1rem 4rem;
+        border: 0.0625rem solid $yellow;
+        cursor: pointer;
+      }
+    }
+    .container__slider {
+      .slider__point {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6rem;
+        .point__text {
+          input {
+            background-color: $yellow;
+            @include H16;
+            color: $black;
+            padding: 1rem 5rem;
+            box-sizing: content-box;
+            cursor: pointer;
+          }
+          .point__title {
+            @include H24;
+            margin-bottom: 2.5rem;
+          }
+          .text__list {
+            @include H16;
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+            margin-bottom: 1rem;
+          }
+        }
+        .point__image {
+          max-width: 35rem;
+          max-height: 22rem;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+}

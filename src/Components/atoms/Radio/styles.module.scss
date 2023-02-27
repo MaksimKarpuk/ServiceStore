@@ -1,0 +1,16 @@
+@import "../../../index.scss";
+
+.radio {
+  legend {
+    @include H20;
+    margin-bottom: 2rem;
+  }
+  .radioBtns {
+    display: flex;
+    gap: 3rem;
+    .radioBtn {
+      display: flex;
+      gap: 1rem;
+    }
+  }
+}

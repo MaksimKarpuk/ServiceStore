@@ -1,0 +1,10 @@
+@import "../../../index.scss";
+
+input {
+  @include H16;
+  color: $white;
+  background-color: $banner__button;
+  padding: 1rem 2.5rem;
+  box-sizing: content-box;
+  cursor: pointer;
+}

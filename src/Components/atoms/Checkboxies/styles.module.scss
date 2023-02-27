@@ -1,0 +1,35 @@
+@import "../../../index.scss";
+
+.checkboxContainer {
+  .legend {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    legend {
+      @include H20;
+    }
+    .arrow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .checkboxies {
+    white-space: nowrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 2.5rem;
+    row-gap: 2rem;
+    .checkbox {
+      label {
+        display: flex;
+        gap: 1rem;
+        @include H16;
+        input {
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+      }
+    }
+  }
+}
