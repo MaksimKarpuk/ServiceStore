@@ -18,8 +18,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      @include H18;
       .container__link {
-        @include H18;
+       
         cursor: pointer;
       }
     }

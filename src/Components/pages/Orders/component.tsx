@@ -13,7 +13,7 @@ function OrderPage() {
     <div className={style.orders}>
       {orders.map((order: any, index: number) => (
         <div className={style.order}>
-          <div className={style.order__title}>Заказ № {index + 1}</div>
+          <div className={style.order__title}>Заказ № {order.id}</div>
           <div className={style.order__info}>
             Заявитель: {order.name}. Адрес: {order.region} область, город{" "}
             {order.city}
@@ -46,7 +46,12 @@ function OrderPage() {
   );
   return (
     <div className={style.container}>
-      {orders.length === 0 && <div className={style.emptyOrders}>Заказы отсутствуют</div>}
+      {orders.length === 0 && (
+        <div className={style.emptyOrders}>
+          Заказы отсутствуют. Заказа моно добавить на главной странице заполнив
+          форму.
+        </div>
+      )}
       {order}
     </div>
   );

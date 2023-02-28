@@ -6,11 +6,9 @@
     }
   ],
   "headerLinks": [
-    { "id": "1", "link": "Цена", "href": "#Цена", "to": "/price" },
-    { "id": "2", "link": "Автопарк", "href": "#Автопарк", "to": "/autopark" },
-    { "id": "3", "link": "Отзывы", "href": "#Отзывы", "to": "/feedback" },
-    { "id": "4", "link": "Контакты", "href": "#Контакты", "to": "/contacts" },
-    { "id": "5", "link": "Заказы", "href": "#Заказы", "to": "/orders" }
+    { "id": "1", "link": "Заказы", "href": "#Заказы", "to": "/orders" },
+    { "id": "2", "link": "Отзывы", "href": "#Отзывы", "to": "/feedback" }
+    
   ],
   "autoparkPoints": ["Газели", "Каблуки", "Грузовики"],
   "bannerAdvantages": [

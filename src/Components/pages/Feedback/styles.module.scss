@@ -1,6 +1,78 @@
 @import "../../../assets/styles/index.scss";
 
-.container {
-
-  
+.feedbacks {
+  padding: 2rem 0;
+  .feedbacks__container {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    .container__empty {
+      @include H24;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .empty__message {
+      }
+    }
+    .container__addBtn {
+      padding: 1rem 3rem;
+      background-color: $yellow;
+      cursor: pointer;
+      display: inline-block;
+    }
+    .container__textArea {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      textarea {
+        border: 0.0625rem solid $yellow;
+        min-height: 20rem;
+        min-width: 30rem;
+      }
+      .textArea__btn {
+        padding: 1rem 3rem;
+        background-color: $yellow;
+        cursor: pointer;
+        width: 15rem;
+        text-align: center;
+      }
+    }
+    .container__feedback {
+      max-width: 100%;
+      width: 100%;
+      .feedback__item {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        .item {
+          border: 0.0625rem solid $yellow;
+          padding: 1rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        .item__text{
+          max-width: 50rem;
+          @include H20;
+        }
+          .item__deleteBtn {
+            width: 3rem;
+            height: 3rem;
+            background-color: $yellow;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            .deleteBtn {
+              width: 1.2rem;
+              height: 1.2rem;
+            }
+          }
+        }
+      }
+    }
+  }
 }

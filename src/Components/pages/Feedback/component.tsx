@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import style from "./styles.module.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { store } from "../../../redux/reducers/store";
+import { RiDeleteBin5Line } from "react-icons/ri";
 
 function FeedbackPage() {
   const dispatch = useDispatch();
   const [feedbackValue, setfeedbackValue] = useState("");
   const addFeedback = (value: string) => {
     dispatch(store.actions.setFeedback(value));
+    setfeedbackValue("");
   };
-  const deleteFeedback = (id: number) => {
-    dispatch(store.actions.deleteFeedback(id));
+  const deleteFeedback = (index: number) => {
+    dispatch(store.actions.deleteFeedback(index));
   };
   const setVisibleArea = () => {
     dispatch(store.actions.setVisibleArea());
@@ -22,7 +24,15 @@ function FeedbackPage() {
   const feedback = (
     <div className={style.feedback__item}>
       {feedbacks.map((fb: any, index: number) => (
-        <div className={style.item}>{fb}</div>
+        <div className={style.item}>
+          <div className={style.item__text}>{fb}</div>
+          <div
+            className={style.item__deleteBtn}
+            onClick={() => deleteFeedback(index)}
+          >
+            <RiDeleteBin5Line className={style.deleteBtn} />
+          </div>
+        </div>
       ))}
     </div>
   );
@@ -34,9 +44,7 @@ function FeedbackPage() {
             <div className={style.empty__message}>Отзывы отсутствуют</div>
           )}
         </div>
-        <div className={style.container__addBtn} onClick={setVisibleArea}>
-          Добавить отзыв
-        </div>
+
         {feedbackVesible && (
           <div className={style.container__textArea}>
             <textarea
@@ -45,10 +53,20 @@ function FeedbackPage() {
               value={feedbackValue}
               onChange={(e) => setfeedbackValue(e.target.value)}
             ></textarea>
-            <div onClick={() => addFeedback(feedbackValue)}>Добавить</div>
+            <div
+              className={style.textArea__btn}
+              onClick={() => addFeedback(feedbackValue)}
+            >
+              Добавить
+            </div>
           </div>
         )}
         <div className={style.container__feedback}>{feedback}</div>
+        {!feedbackVesible && (
+          <div className={style.container__addBtn} onClick={setVisibleArea}>
+            Добавить отзыв
+          </div>
+        )}
       </div>
     </div>
   );

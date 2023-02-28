@@ -13,13 +13,13 @@ import { useSelector, useDispatch } from "react-redux";
 
 function NewForm() {
   const dispatch = useDispatch();
-
+  const [error, setError] = useState(false);
   const setOrder = (values: any) => {
     console.log(values);
     dispatch(store.actions.setOrder(values));
-
+    setError(true);
     alert(
-      `${values.name}, спасибо за оформление заказа. Информацию о заказе можете проверить на странице заказов.`
+      `${values.name}, спасибо за оформление заказа. Информацию о заказе можете проверить на странице заказов.${error}`
     );
   };
   const formContent: any = content.formInfo[0];
@@ -35,6 +35,7 @@ function NewForm() {
     },
     onSubmit: (values) => {
       setOrder(values);
+      setError(false);
     },
   });
 
@@ -47,7 +48,11 @@ function NewForm() {
             {formContent.subtitle}
           </div>
           <form onSubmit={formik.handleSubmit}>
-            <div className={style.container__input}>
+            <div
+              className={
+                error ? style.container__error_input : style.container__input
+              }
+            >
               <Input
                 placeholder={formContent.placeholderName}
                 id={"name"}
@@ -115,10 +120,24 @@ function NewForm() {
                 checkboxLables={formContent.checkboxLables}
               />
             </div>
-            <div className={style.container__button}>
-              <Button formButtonText={formContent.formButtonText} />
+            <div
+              className={style.container__button}
+              onClick={() => {
+                setError(true);
+              }}
+            >
+              <Button
+                formButtonText={formContent.formButtonText}
+                checkbox={formik.values.checkbox}
+                name={formik.values.name}
+                phone={formik.values.phone}
+              />
             </div>
-            <div className={style.container__checkbox}>
+            <div
+              className={
+                error ? style.container__error_checkbox : style.container__checkbox
+              }
+            >
               <Checkbox
                 checkboxFormLabel={formContent.checkboxFormLabel}
                 id={"checkbox"}
@@ -128,7 +147,6 @@ function NewForm() {
               />
             </div>
           </form>
-          {/* {popup && <div>{order}</div>} */}
         </div>
       </div>
     </div>

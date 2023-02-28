@@ -4,7 +4,11 @@ import style from "./styles.module.scss";
 function Button(props: any) {
   return (
     <input
-      type="submit"
+      type={
+        props.checkbox === "" || props.name === "" || props.phone === ""
+          ? "button"
+          : "submit"
+      }
       value={props.formButtonText}
     />
   );

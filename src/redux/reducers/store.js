@@ -27,10 +27,13 @@ export const store = createSlice({
     },
     setFeedback(state, { payload }) {
       state.feedbacks.push(payload);
+      state.feedbackVesible = false;
       localStorage.setItem("feedbacks", JSON.stringify(state.feedbacks));
     },
     deleteFeedback(state, { payload }) {
-      state.feedbacks = state.feedbacks.filter((fb) => fb.id !== payload);
+      state.feedbacks = state.feedbacks.filter(
+        (fb, index) => index !== payload
+      );
       localStorage.setItem("feedbacks", JSON.stringify(state.feedbacks));
     },
     setVisibleArea(state) {

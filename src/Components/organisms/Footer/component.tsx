@@ -26,7 +26,11 @@ function Footer() {
         </div>
         <nav className={style.footer__nav}>{links}</nav>
         <div className={style.footer__social}>
-          <a href="tel:8 (029)-999-12-13" className={style.social__btn}>
+          <a
+            href="tel:8 (029)-999-12-13"
+            id="Контакты"
+            className={style.social__btn}
+          >
             Обратный звонок
           </a>
           <div className={style.social__number}>

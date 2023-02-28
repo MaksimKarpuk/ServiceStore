@@ -18,7 +18,12 @@ function Header() {
         <Link to="/">
           <div className={style.container__logo}>{logo}</div>
         </Link>
-        <div className={style.container__links}>{links}</div>
+        <div className={style.container__links}>
+          {links}
+          <a href="#Автопарк">Автопарк</a>
+          <a href="#Контакты">Контакты</a>
+          <a href="#Цена">Цена</a>
+        </div>
         <div className={style.container__phohe}>
           <a href="tel:8 (029)-999-12-13"> {phone}</a>
         </div>

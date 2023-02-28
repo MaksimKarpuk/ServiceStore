@@ -15,7 +15,6 @@ function AutoPark() {
   const sliderPoints: any[] = content.autoparkPoints.map(
     (point, pointIndex) => (
       <div
-        onClick={() => setIndex((index = pointIndex))}
         className={
           pointIndex === index
             ? style.slider__point__active
