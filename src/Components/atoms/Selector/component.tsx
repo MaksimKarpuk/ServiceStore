@@ -20,9 +20,6 @@ function Selector(props: any) {
         onChange={props.onChange}
         value={props.value}
       >
-        <option selected disabled>
-          Выбрать
-        </option>
         {option}
       </select>
     </div>

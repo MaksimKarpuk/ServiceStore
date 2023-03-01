@@ -47,3 +47,10 @@
   font-size: 4.375rem;
   line-height: 105.4%;
 }
+@mixin H50() {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 3.125rem;
+  line-height: 2.5rem;
+}

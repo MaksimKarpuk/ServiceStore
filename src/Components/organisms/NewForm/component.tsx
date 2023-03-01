@@ -33,9 +33,10 @@ function NewForm() {
       checkboxes: [],
       checkbox: "",
     },
-    onSubmit: (values) => {
+    onSubmit: (values, { resetForm }) => {
       setOrder(values);
       setError(false);
+      resetForm();
     },
   });
 
@@ -96,7 +97,7 @@ function NewForm() {
                     ? formContent.vitebsk
                     : formik.values.region == "Могилевская"
                     ? formContent.mogilev
-                    : []
+                    : formContent.choise
                 }
               />
             </div>
@@ -135,7 +136,9 @@ function NewForm() {
             </div>
             <div
               className={
-                error ? style.container__error_checkbox : style.container__checkbox
+                error
+                  ? style.container__error_checkbox
+                  : style.container__checkbox
               }
             >
               <Checkbox
