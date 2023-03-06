@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import style from "./styles.module.scss";
 import content from "../../../data/content.json";
-import Input from "../../atoms/Input/component";
-import Selector from "../../atoms/Selector/component";
-import Radio from "../../atoms/Radio/component";
-import Checkboxies from "../../atoms/Checkboxies/component";
-import Button from "../../atoms/Button/component";
-import Checkbox from "../../atoms/Checkbox/component";
+import Input from "../../atoms/Input/Input";
+import Selector from "../../atoms/Selector/Selector";
+import RadioBtn from "../../atoms/Radio/RadioBtn";
+import Checkboxes from "../../atoms/Checkboxes/Checkboxes";
+import Button from "../../atoms/Button/Button";
+import Checkbox from "../../atoms/Checkbox/Checkbox";
 import { useFormik } from "formik";
 import { store } from "../../../redux/reducers/store";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 function NewForm() {
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ function NewForm() {
     dispatch(store.actions.setOrder(values));
     setError(true);
     alert(
-      `${values.name}, спасибо за оформление заказа. Информацию о заказе можете проверить на странице заказов.${error}`
+      `${values.name}, спасибо за оформление заказа. Информацию о заказе можете проверить на странице заказов.`
     );
   };
   const formContent: any = content.formInfo[0];
@@ -56,55 +56,55 @@ function NewForm() {
             >
               <Input
                 placeholder={formContent.placeholderName}
-                id={"name"}
-                name={"name"}
+                id="name"
+                name="name"
                 onChange={formik.handleChange}
                 value={formik.values.name}
               />
               <Input
                 placeholder={formContent.placeholderPhone}
-                id={"phone"}
-                name={"phone"}
+                id="phone"
+                name="phone"
                 onChange={formik.handleChange}
                 value={formik.values.phone}
               />
             </div>
             <div className={style.container__selector}>
               <Selector
-                id={"region"}
-                name={"region"}
+                id="region"
+                name="region"
                 onChange={formik.handleChange}
                 value={formik.values.region}
                 label={formContent.selectorRegionLabel}
                 options={formContent.selectorRegionOptions}
               />
               <Selector
-                id={"city"}
-                name={"city"}
+                id="city"
+                name="city"
                 onChange={formik.handleChange}
                 value={formik.values.city}
                 label={formContent.selectorCityLabel}
                 options={
-                  formik.values.region == "Минская"
+                  formik.values.region === "Минская"
                     ? formContent.minsk
-                    : formik.values.region == "Брестcкая"
+                    : formik.values.region === "Брестcкая"
                     ? formContent.brest
-                    : formik.values.region == "Гродненская"
+                    : formik.values.region === "Гродненская"
                     ? formContent.grodno
-                    : formik.values.region == "Гомельская"
+                    : formik.values.region === "Гомельская"
                     ? formContent.gomel
-                    : formik.values.region == "Витебская"
+                    : formik.values.region === "Витебская"
                     ? formContent.vitebsk
-                    : formik.values.region == "Могилевская"
+                    : formik.values.region === "Могилевская"
                     ? formContent.mogilev
                     : formContent.choise
                 }
               />
             </div>
             <div className={style.container__radiobtn}>
-              <Radio
-                id={"radio"}
-                name={"radio"}
+              <RadioBtn
+                id="radio"
+                name="radio"
                 onChange={formik.handleChange}
                 value={formik.values.radio}
                 radioLegend={formContent.radioLegend}
@@ -112,9 +112,9 @@ function NewForm() {
               />
             </div>
             <div className={style.container__checkboxies}>
-              <Checkboxies
-                id={"checkboxes"}
-                name={"checkboxes"}
+              <Checkboxes
+                id="checkboxes"
+                name="checkboxes"
                 onChange={formik.handleChange}
                 value={formik.values.checkboxes}
                 checkboxLegend={formContent.checkboxLegend}
@@ -143,8 +143,8 @@ function NewForm() {
             >
               <Checkbox
                 checkboxFormLabel={formContent.checkboxFormLabel}
-                id={"checkbox"}
-                name={"checkbox"}
+                id="checkbox"
+                name="checkbox"
                 onChange={formik.handleChange}
                 value={formik.values.checkbox}
               />

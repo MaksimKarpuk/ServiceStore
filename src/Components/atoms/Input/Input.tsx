@@ -1,0 +1,26 @@
+import React from "react";
+import style from "./styles.module.scss";
+
+interface IInputProps {
+  id: string;
+  name: string;
+  onChange: any;
+  placeholder: string;
+  value: string[] | string;
+}
+
+function Input({ id, name, onChange, placeholder, value }: IInputProps) {
+  return (
+    <input
+      className={style.input}
+      type="text"
+      id={id}
+      name={name}
+      placeholder={placeholder}
+      onChange={onChange}
+      value={value}
+    />
+  );
+}
+
+export default Input;

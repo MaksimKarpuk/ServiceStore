@@ -1,7 +1,17 @@
 import React from "react";
+import RadioBtnView from "./RadioBtnView";
 import style from "./styles.module.scss";
 
-function Radio(props: any) {
+interface IRadioBtnProps {
+  id: string;
+  name: string;
+  onChange: any;
+  value: string;
+  radioLegend: string;
+  radioLables: string[];
+}
+
+const RadioBtn = (props: IRadioBtnProps) => {
   const labels: any = props.radioLables.map((label: string, index: number) => (
     <div className={style.radioBtn} key={index}>
       <input
@@ -10,17 +20,11 @@ function Radio(props: any) {
         name={props.name}
         id={props.id}
         onChange={props.onChange}
-        // value={props.value}
       />
       <label htmlFor={label}>{label}</label>
     </div>
   ));
-  return (
-    <div className={style.radio}>
-      <legend>{props.radioLegend}</legend>
-      <div className={style.radioBtns}>{labels}</div>
-    </div>
-  );
-}
+  return <RadioBtnView labels={labels} radioLegend={props.radioLegend} />;
+};
 
-export default Radio;
+export default RadioBtn;

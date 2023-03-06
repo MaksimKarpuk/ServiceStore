@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./styles.module.scss";
 import content from "../../../data/content.json";
-import Button from "../../atoms/Button/component";
+import Button from "../../atoms/Button/Button";
 
 function Price() {
   const priceContent: any = content.price[0].cards;
