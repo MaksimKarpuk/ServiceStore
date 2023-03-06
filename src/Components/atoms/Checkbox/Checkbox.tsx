@@ -4,7 +4,7 @@ interface ICheckboxProps {
   id: string;
   name: string;
   onChange: any;
-  checkboxFormLabel: any;
+  checkboxFormLabel: string;
   value: string[] | string;
 }
 const Checkbox = ({

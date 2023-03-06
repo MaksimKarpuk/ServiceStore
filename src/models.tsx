@@ -1,7 +1,7 @@
 export default interface ICheckboxesProps {
   id: string;
   name: string;
-  onChange: any;
+  onChange: Function;
   value: string[];
   checkboxLegend: string;
   checkboxLables: string[];

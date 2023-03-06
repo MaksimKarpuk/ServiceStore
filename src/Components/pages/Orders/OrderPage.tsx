@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { store } from "../../../redux/reducers/store";
 import OrderPageView from "./OrderPageView";
@@ -13,16 +13,16 @@ import style from "./styles.module.scss";
 
 const OrderPage = () => {
   const dispatch = useDispatch();
-  const deleteItem = (id: number) => {
+
+  const deleteItem = useCallback((id: number) => {
     dispatch(store.actions.deleteOrder(id));
-  };
-  const orders: string[] = useSelector(
-    (state: any) => state.store.orders
-  );
+  }, []);
+
+  const orders: string[] = useSelector((state: any) => state.store.orders);
   const order = (
     <div className={style.orders}>
-      {orders.map((order: any, index: number) => (
-        <div className={style.order}>
+      {orders.map((order: any) => (
+        <div className={style.order} key={order.id}>
           <div className={style.order__title}>Заказ № {order.id}</div>
           <div className={style.order__info}>
             Заявитель: {order.name}. Адрес: {order.region} область, город{" "}
