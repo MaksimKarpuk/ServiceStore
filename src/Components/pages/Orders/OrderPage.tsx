@@ -1,14 +1,24 @@
 import React from "react";
-import style from "./styles.module.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { store } from "../../../redux/reducers/store";
+import OrderPageView from "./OrderPageView";
+import style from "./styles.module.scss";
 
-function OrderPage() {
+// interface IOrderPage {
+//   orders: Array<string>;
+//   feedbacks: Array<string>;
+//   loading: boolean;
+//   feedbackVesible: boolean;
+// }
+
+const OrderPage = () => {
   const dispatch = useDispatch();
   const deleteItem = (id: number) => {
     dispatch(store.actions.deleteOrder(id));
   };
-  const orders: any = useSelector((state: any) => state.store.orders);
+  const orders: string[] = useSelector(
+    (state: any) => state.store.orders
+  );
   const order = (
     <div className={style.orders}>
       {orders.map((order: any, index: number) => (
@@ -44,17 +54,7 @@ function OrderPage() {
       ))}
     </div>
   );
-  return (
-    <div className={style.container}>
-      {orders.length === 0 && (
-        <div className={style.emptyOrders}>
-          Заказы отсутствуют. Заказа моно добавить на главной странице заполнив
-          форму.
-        </div>
-      )}
-      {order}
-    </div>
-  );
-}
+  return <OrderPageView order={order} orders={orders} />;
+};
 
 export default OrderPage;

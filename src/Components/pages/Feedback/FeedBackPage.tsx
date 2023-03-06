@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { store } from "../../../redux/reducers/store";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import style from "./styles.module.scss";
-import FeedbackView from "./FeedBackView";
+import FeedbackView from "./FeedBackPageView";
 
 const Feedback = () => {
   const dispatch = useDispatch();

@@ -3,9 +3,9 @@ import { Route, Routes } from "react-router-dom";
 import style from "./styles.module.scss";
 import Header from "./Components/organisms/Header/Header";
 import Footer from "./Components/organisms/Footer/Footer";
-import HomePage from "./Components/pages/Home/component";
-import OrderPage from "./Components/pages/Orders/component";
-import FeedbackPage from "./Components/pages/Feedback/FeedBack";
+import HomePage from "./Components/pages/Home/HomePage";
+import OrderPage from "./Components/pages/Orders/OrderPage";
+import FeedbackPage from "./Components/pages/Feedback/FeedBackPage";
 import { SlArrowUp } from "react-icons/sl";
 
 function App() {
