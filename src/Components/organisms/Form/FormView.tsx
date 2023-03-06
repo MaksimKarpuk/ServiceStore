@@ -14,7 +14,7 @@ interface IFormView {
   setError: Function;
 }
 
-function FormView({ error, formContent, formik, setError }: IFormView) {
+const FormView = ({ error, formContent, formik, setError }: IFormView) => {
   return (
     <div id="Заказать" className={style.form}>
       <div className={style.form__container}>
@@ -129,6 +129,6 @@ function FormView({ error, formContent, formik, setError }: IFormView) {
       </div>
     </div>
   );
-}
+};
 
 export default FormView;

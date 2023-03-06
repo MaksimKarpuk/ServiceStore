@@ -12,19 +12,17 @@ const Checkboxes = ({
   checkboxLegend,
   checkboxLables,
 }: ICheckboxesProps) => {
-  const labels: any = checkboxLables.map(
-    (label: any, index: number) => (
-      <div className={style.checkbox} key={index}>
-        <Checkbox
-          checkboxFormLabel={label.name}
-          id={id}
-          name={name}
-          onChange={onChange}
-          value={value}
-        />
-      </div>
-    )
-  );
+  const labels: any = checkboxLables.map((label: any, index: number) => (
+    <div className={style.checkbox} key={index}>
+      <Checkbox
+        checkboxFormLabel={label.name}
+        id={id}
+        name={name}
+        onChange={onChange}
+        value={value}
+      />
+    </div>
+  ));
   return <CheckboxesView labels={labels} checkboxLegend={checkboxLegend} />;
 };
 

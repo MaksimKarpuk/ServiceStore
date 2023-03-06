@@ -6,7 +6,7 @@ interface IPriceView {
   [key: string]: string;
 }
 
-function PriceView({ cards }: IPriceView) {
+const PriceView = ({ cards }: IPriceView) => {
   return (
     <div id="Цена" className={style.price}>
       <div className={style.price__container}>
@@ -18,6 +18,6 @@ function PriceView({ cards }: IPriceView) {
       </div>
     </div>
   );
-}
+};
 
 export default PriceView;

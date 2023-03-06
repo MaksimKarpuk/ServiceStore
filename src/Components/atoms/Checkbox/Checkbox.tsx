@@ -4,17 +4,16 @@ interface ICheckboxProps {
   id: string;
   name: string;
   onChange: any;
-  checkboxFormLabel:any;
+  checkboxFormLabel: any;
   value: string[] | string;
 }
-
-function Checkbox({
+const Checkbox = ({
   id,
   name,
   onChange,
   checkboxFormLabel,
   value,
-}: ICheckboxProps) {
+}: ICheckboxProps) => {
   return (
     <label htmlFor={id}>
       <input
@@ -27,6 +26,6 @@ function Checkbox({
       <div>{checkboxFormLabel}</div>
     </label>
   );
-}
+};
 
 export default Checkbox;

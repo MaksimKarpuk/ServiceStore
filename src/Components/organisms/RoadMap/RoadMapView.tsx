@@ -6,7 +6,7 @@ interface IRoadMapView {
   [key: string]: string;
 }
 
-function RoadMapView({ cards }: IRoadMapView) {
+const RoadMapView = ({ cards }: IRoadMapView) => {
   return (
     <div className={style.roadmap}>
       <div className={style.price__container}>
@@ -15,6 +15,6 @@ function RoadMapView({ cards }: IRoadMapView) {
       </div>
     </div>
   );
-}
+};
 
 export default RoadMapView;

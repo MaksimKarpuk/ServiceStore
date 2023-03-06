@@ -6,7 +6,7 @@ interface IOrderPageViewProps {
   orders: string[];
 }
 
-function OrderPageView({ order, orders }: IOrderPageViewProps) {
+const OrderPageView = ({ order, orders }: IOrderPageViewProps) => {
   return (
     <div className={style.container}>
       {orders.length === 0 && (
@@ -18,6 +18,6 @@ function OrderPageView({ order, orders }: IOrderPageViewProps) {
       {order}
     </div>
   );
-}
+};
 
 export default OrderPageView;

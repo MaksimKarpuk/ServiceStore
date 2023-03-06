@@ -3,7 +3,7 @@ import style from "./styles.module.scss";
 import banner from "../../../assets/images/banner.png";
 import Button from "../../atoms/Button/Button";
 
-function BannerView({ formButtonText, advantages }: any) {
+const BannerView = ({ formButtonText, advantages }: any) => {
   return (
     <nav className={style.banner}>
       <div className={style.banner__container}>
@@ -21,6 +21,6 @@ function BannerView({ formButtonText, advantages }: any) {
       </div>
     </nav>
   );
-}
+};
 
 export default BannerView;

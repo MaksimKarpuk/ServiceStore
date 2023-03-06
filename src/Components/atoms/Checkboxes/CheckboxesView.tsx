@@ -6,8 +6,7 @@ interface CheckboxesViewProps {
   labels: any;
   checkboxLegend: string;
 }
-
-function CheckboxesView({ labels, checkboxLegend }: CheckboxesViewProps) {
+const CheckboxesView = ({ labels, checkboxLegend }: CheckboxesViewProps) => {
   return (
     <div className={style.checkboxContainer}>
       <div className={style.legend}>
@@ -19,6 +18,6 @@ function CheckboxesView({ labels, checkboxLegend }: CheckboxesViewProps) {
       <div className={style.checkboxies}>{labels}</div>
     </div>
   );
-}
+};
 
 export default CheckboxesView;

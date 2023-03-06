@@ -8,7 +8,7 @@ interface IHeaderView {
   [key: string]: string;
 }
 
-function HeaderView({ logo, phone, links }: IHeaderView) {
+const HeaderView = ({ logo, phone, links }: IHeaderView) => {
   return (
     <nav id="Главная" className={style.header}>
       <div className={style.header__container}>
@@ -27,6 +27,6 @@ function HeaderView({ logo, phone, links }: IHeaderView) {
       </div>
     </nav>
   );
-}
+};
 
 export default HeaderView;

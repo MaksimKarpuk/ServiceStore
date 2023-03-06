@@ -7,7 +7,7 @@ interface IButtonProps {
   phone?: string;
 }
 
-function Button({ formButtonText, checkbox, name, phone }: IButtonProps) {
+const Button = ({ formButtonText, checkbox, name, phone }: IButtonProps) => {
   return (
     <input
       type={
@@ -16,6 +16,6 @@ function Button({ formButtonText, checkbox, name, phone }: IButtonProps) {
       value={formButtonText}
     />
   );
-}
+};
 
 export default Button;

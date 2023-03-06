@@ -8,7 +8,7 @@ import OrderPage from "./Components/pages/Orders/OrderPage";
 import FeedbackPage from "./Components/pages/Feedback/FeedBackPage";
 import { SlArrowUp } from "react-icons/sl";
 
-function App() {
+const App = () => {
   return (
     <div className={style.app}>
       <Header />
@@ -23,6 +23,6 @@ function App() {
       <Footer />
     </div>
   );
-}
+};
 
 export default App;

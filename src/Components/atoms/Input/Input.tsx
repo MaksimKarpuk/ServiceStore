@@ -9,7 +9,7 @@ interface IInputProps {
   value: string[] | string;
 }
 
-function Input({ id, name, onChange, placeholder, value }: IInputProps) {
+const Input = ({ id, name, onChange, placeholder, value }: IInputProps) => {
   return (
     <input
       className={style.input}
@@ -21,6 +21,6 @@ function Input({ id, name, onChange, placeholder, value }: IInputProps) {
       value={value}
     />
   );
-}
+};
 
 export default Input;

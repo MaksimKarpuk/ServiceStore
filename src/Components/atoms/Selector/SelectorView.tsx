@@ -10,14 +10,14 @@ interface ISelectorViewProps {
   option: string;
 }
 
-function SelectorView({
+const SelectorView = ({
   id,
   name,
   onChange,
   value,
   label,
   option,
-}: ISelectorViewProps) {
+}: ISelectorViewProps) => {
   return (
     <div className={style.selector}>
       <label className={style.selector__label} htmlFor={id}>
@@ -28,6 +28,6 @@ function SelectorView({
       </select>
     </div>
   );
-}
+};
 
 export default SelectorView;

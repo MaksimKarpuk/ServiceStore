@@ -5,7 +5,7 @@ import fb from "../../../assets/icons/fb.svg";
 import insta from "../../../assets/icons/insta.svg";
 import youtoob from "../../../assets/icons/youtoob.svg";
 
-function FooterView({ links, footer }: any) {
+const FooterView = ({ links, footer }: any) => {
   return (
     <div className={style.footer}>
       <div className={style.footer__container}>
@@ -66,6 +66,6 @@ function FooterView({ links, footer }: any) {
       </div>
     </div>
   );
-}
+};
 
 export default FooterView;

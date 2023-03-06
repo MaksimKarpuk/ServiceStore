@@ -11,7 +11,7 @@ interface IFeedBackView {
   feedbacks: string[];
 }
 
-function FeedbackView({
+const FeedbackView = ({
   feedbackValue,
   addFeedback,
   setVisibleArea,
@@ -19,7 +19,7 @@ function FeedbackView({
   feedback,
   setfeedbackValue,
   feedbacks,
-}: IFeedBackView) {
+}: IFeedBackView) => {
   return (
     <div className={style.feedbacks}>
       <div className={style.feedbacks__container}>
@@ -54,6 +54,6 @@ function FeedbackView({
       </div>
     </div>
   );
-}
+};
 
 export default FeedbackView;

@@ -5,7 +5,7 @@ import Form from "../../organisms/Form/Form";
 import Price from "../../organisms/Price/Price";
 import RoadMap from "../../organisms/RoadMap/RoadMap";
 
-function HomePage() {
+const HomePage = () => {
   return (
     <div>
       <Banner />
@@ -15,6 +15,6 @@ function HomePage() {
       <Form />
     </div>
   );
-}
+};
 
 export default HomePage;

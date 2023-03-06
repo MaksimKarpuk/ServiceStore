@@ -5,7 +5,7 @@ import { Navigation } from "swiper";
 import "swiper/scss";
 import "swiper/scss/navigation";
 
-function AutoParkView({ slider, setIndex, sliderPoints, index }: any) {
+const AutoParkView = ({ slider, setIndex, sliderPoints, index }: any) => {
   return (
     <div id="Автопарк" className={style.autopark}>
       <div className={style.autopark__container}>
@@ -34,6 +34,6 @@ function AutoParkView({ slider, setIndex, sliderPoints, index }: any) {
       </div>
     </div>
   );
-}
+};
 
 export default AutoParkView;
