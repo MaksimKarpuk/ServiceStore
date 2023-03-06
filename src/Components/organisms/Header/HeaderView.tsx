@@ -1,17 +1,14 @@
 import React from "react";
 import style from "./styles.module.scss";
-import content from "../../../data/content.json";
 import { Link } from "react-router-dom";
 
-const phone: string = content.headerInfo[0].phone;
-const logo: string = content.headerInfo[0].logo;
-const links: any = content.headerLinks.map((link) => (
-  <div className={style.container__link} key={link.id}>
-    <Link to={link.to}>{link.link}</Link>
-  </div>
-));
+interface IHeaderView {
+  logo: string;
+  phone: string;
+  [key: string]: string;
+}
 
-function Header() {
+function HeaderView({ logo, phone, links }: IHeaderView) {
   return (
     <nav id="Главная" className={style.header}>
       <div className={style.header__container}>
@@ -32,4 +29,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default HeaderView;

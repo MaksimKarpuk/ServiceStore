@@ -1,45 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import style from "./styles.module.scss";
-import content from "../../../data/content.json";
 import Input from "../../atoms/Input/Input";
 import Selector from "../../atoms/Selector/Selector";
 import RadioBtn from "../../atoms/Radio/RadioBtn";
 import Checkboxes from "../../atoms/Checkboxes/Checkboxes";
 import Button from "../../atoms/Button/Button";
 import Checkbox from "../../atoms/Checkbox/Checkbox";
-import { useFormik } from "formik";
-import { store } from "../../../redux/reducers/store";
-import { useDispatch } from "react-redux";
 
-function NewForm() {
-  const dispatch = useDispatch();
-  const [error, setError] = useState(false);
-  const setOrder = (values: any) => {
-    console.log(values);
-    dispatch(store.actions.setOrder(values));
-    setError(true);
-    alert(
-      `${values.name}, спасибо за оформление заказа. Информацию о заказе можете проверить на странице заказов.`
-    );
-  };
-  const formContent: any = content.formInfo[0];
-  const formik = useFormik({
-    initialValues: {
-      name: "",
-      phone: "",
-      region: "",
-      city: "",
-      radio: "",
-      checkboxes: [],
-      checkbox: "",
-    },
-    onSubmit: (values, { resetForm }) => {
-      setOrder(values);
-      setError(false);
-      resetForm();
-    },
-  });
+interface IFormView {
+  error: boolean;
+  formContent: any;
+  formik: any;
+  setError: Function;
+}
 
+function FormView({ error, formContent, formik, setError }: IFormView) {
   return (
     <div id="Заказать" className={style.form}>
       <div className={style.form__container}>
@@ -156,4 +131,4 @@ function NewForm() {
   );
 }
 
-export default NewForm;
+export default FormView;

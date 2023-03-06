@@ -1,9 +1,10 @@
 import React from "react";
-import style from "./styles.module.scss";
-import content from "../../../data/content.json";
+import PriceView from "./PriceView";
 import Button from "../../atoms/Button/Button";
+import content from "../../../data/content.json";
+import style from "./styles.module.scss";
 
-function Price() {
+const Price = () => {
   const priceContent: any = content.price[0].cards;
   const cards = priceContent.map((card: any, index: number) => (
     <div className={style.card__content} key={card.id}>
@@ -17,15 +18,7 @@ function Price() {
       </a>
     </div>
   ));
-  return (
-    <div id="Цена" className={style.price}>
-      <div className={style.price__container}>
-        <div className={style.container__title}>{content.price[0].title}</div>
-        <div className={style.container__subtitle}>{content.price[0].subtitle}</div>
-        <div className={style.container__cards}>{cards}</div>
-      </div>
-    </div>
-  );
-}
+  return <PriceView cards={cards} />;
+};
 
 export default Price;

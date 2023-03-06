@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import style from "./styles.module.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { store } from "../../../redux/reducers/store";
 import { RiDeleteBin5Line } from "react-icons/ri";
+import style from "./styles.module.scss";
+import FeedbackView from "./FeedBackView";
 
-function FeedbackPage() {
+const Feedback = () => {
   const dispatch = useDispatch();
   const [feedbackValue, setfeedbackValue] = useState("");
   const addFeedback = (value: string) => {
@@ -37,39 +38,16 @@ function FeedbackPage() {
     </div>
   );
   return (
-    <div className={style.feedbacks}>
-      <div className={style.feedbacks__container}>
-        <div className={style.container__empty}>
-          {feedbacks.length === 0 && (
-            <div className={style.empty__message}>Отзывы отсутствуют</div>
-          )}
-        </div>
-
-        {feedbackVesible && (
-          <div className={style.container__textArea}>
-            <textarea
-              name="feedback"
-              id="feedback"
-              value={feedbackValue}
-              onChange={(e) => setfeedbackValue(e.target.value)}
-            ></textarea>
-            <div
-              className={style.textArea__btn}
-              onClick={() => addFeedback(feedbackValue)}
-            >
-              Добавить
-            </div>
-          </div>
-        )}
-        <div className={style.container__feedback}>{feedback}</div>
-        {!feedbackVesible && (
-          <div className={style.container__addBtn} onClick={setVisibleArea}>
-            Добавить отзыв
-          </div>
-        )}
-      </div>
-    </div>
+    <FeedbackView
+      feedbackValue={feedbackValue}
+      addFeedback={addFeedback}
+      setVisibleArea={setVisibleArea}
+      feedbackVesible={feedbackVesible}
+      feedback={feedback}
+      feedbacks={feedbacks}
+      setfeedbackValue={setfeedbackValue}
+    />
   );
-}
+};
 
-export default FeedbackPage;
+export default Feedback;
