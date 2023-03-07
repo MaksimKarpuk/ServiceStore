@@ -4,6 +4,11 @@ import { IoIosArrowDown } from "react-icons/io";
 import Checkbox from "../Checkbox/Checkbox";
 import ICheckboxesProps from "../../../models";
 
+interface ILabelValue {
+  id: string;
+  name: string;
+}
+
 const CheckboxesView = React.memo(function CheckboxesView({
   id,
   name,
@@ -21,8 +26,8 @@ const CheckboxesView = React.memo(function CheckboxesView({
         </div>
       </div>
       <div className={style.checkboxies}>
-        {checkboxLables.map((label: any, index: number) => (
-          <div className={style.checkbox} key={index}>
+        {checkboxLables.map((label: ILabelValue) => (
+          <div className={style.checkbox} key={label.id}>
             <Checkbox
               checkboxFormLabel={label.name}
               id={id}

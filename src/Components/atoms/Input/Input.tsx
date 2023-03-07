@@ -4,7 +4,7 @@ import style from "./styles.module.scss";
 interface IInputProps {
   id: string;
   name: string;
-  onChange: any;
+  onChange: ()=>void;
   placeholder: string;
   value: string[] | string;
 }

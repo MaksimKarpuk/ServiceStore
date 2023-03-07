@@ -4,7 +4,19 @@ import { Swiper } from "swiper/react";
 import { Navigation } from "swiper";
 import "swiper/scss";
 import "swiper/scss/navigation";
+// interface ISliderPoints {
+//   [index: number]: string;
+// }
+// interface ISlider {
+//   [key: string]: string;
+// }
 
+// interface AutoparkViewProps {
+//   slider: ISlider;
+//   setIndex: () => void;
+//   sliderPoints:ISliderPoints;
+//   index:number;
+// }
 const AutoParkView = ({ slider, setIndex, sliderPoints, index }: any) => {
   return (
     <div id="Автопарк" className={style.autopark}>

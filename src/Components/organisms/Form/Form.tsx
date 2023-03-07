@@ -5,6 +5,9 @@ import { useDispatch } from "react-redux";
 import content from "../../../data/content.json";
 import FormView from "./FormView";
 
+interface IObject {
+  [key: string]: string;
+}
 // interface IFormContent {
 //   title: string;
 //   subtitle: string;
@@ -12,19 +15,18 @@ import FormView from "./FormView";
 //   placeholderPhone: string;
 //   selectorRegionLabel: string;
 //   selectorCityLabel: string;
-//   selectorRegionOptions: string;
-//   selectorCityOptions: string;
-//   minsk: string;
-//   brest: string;
-//   gomel: string;
-//   grodno: string;
-//   vitebsk: string;
-//   mogilev: string;
-//   choise: string;
-//   radioLables: string;
+//   selectorRegionOptions: IObject;
+//   selectorCityOptions: IObject;
+//   minsk: IObject;
+//   brest: IObject;
+//   gomel: IObject;
+//   grodno: IObject;
+//   vitebsk: IObject;
+//   mogilev: IObject;
+//   choise: IObject;
+//   radioLables: IObject;
 //   radioLegend: string;
-//   [key: string]: string;
-//   //   checkboxLables: any;
+//   checkboxLables: IObject;
 //   checkboxLegend: string;
 //   formButtonText: string;
 //   checkboxFormLabel: string;
@@ -43,7 +45,7 @@ interface IValue {
 const Form = () => {
   const dispatch = useDispatch();
   const [error, setError] = useState(false);
-//   const [options, setOptions] = useState([]);
+  //   const [options, setOptions] = useState([]);
   const setOrder = (values: IValue) => {
     dispatch(store.actions.setOrder(values));
     setError(true);
@@ -68,31 +70,31 @@ const Form = () => {
       resetForm();
     },
   });
-//   const getOptions = useCallback(() => {
-//     switch (formik.values.region) {
-//       case "Минская":
-//         setOptions(formContent.minsk);
-//         break;
-//       case "Брестcкая":
-//         setOptions(formContent.brest);
-//         break;
-//       case "Гродненская":
-//         setOptions(formContent.grodno);
-//         break;
-//       case "Гомельская":
-//         setOptions(formContent.gomel);
-//         break;
-//       case "Витебская":
-//         setOptions(formContent.vitebsk);
-//         break;
-//       case "Могилевская":
-//         setOptions(formContent.mogilev);
-//         break;
-//       default:
-//         return formContent.choise;
-//     }
-//     console.log("Hello");
-//   }, [formik.values.region]);
+  //   const getOptions = useCallback(() => {
+  //     switch (formik.values.region) {
+  //       case "Минская":
+  //         setOptions(formContent.minsk);
+  //         break;
+  //       case "Брестcкая":
+  //         setOptions(formContent.brest);
+  //         break;
+  //       case "Гродненская":
+  //         setOptions(formContent.grodno);
+  //         break;
+  //       case "Гомельская":
+  //         setOptions(formContent.gomel);
+  //         break;
+  //       case "Витебская":
+  //         setOptions(formContent.vitebsk);
+  //         break;
+  //       case "Могилевская":
+  //         setOptions(formContent.mogilev);
+  //         break;
+  //       default:
+  //         return formContent.choise;
+  //     }
+  //     console.log("Hello");
+  //   }, [formik.values.region]);
   return (
     <FormView
       error={error}

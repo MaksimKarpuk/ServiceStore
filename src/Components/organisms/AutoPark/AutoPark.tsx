@@ -10,25 +10,37 @@ import kabluk from "../../../assets/images/autopark-kabluk.png";
 import "swiper/scss";
 import "swiper/scss/navigation";
 
+// interface ISliderPoints {
+//   [index: number]: string;
+// }
+// interface ISlider {
+//   [key: string]: string;
+// }
+interface IAuto {
+  id: string;
+  title: string;
+  width: string;
+  height: string;
+  obiom: string;
+  massa: string;
+  src: string;
+}
+
 const AutoPark = () => {
   const formButtonText: string = "Заказать";
   let [index, setIndex] = useState(0);
-  const sliderPoints: any[] = content.autoparkPoints.map(
-    (point, pointIndex) => (
-      <div
-        className={
-          pointIndex === index
-            ? style.slider__point__active
-            : style.slider__point
-        }
-        key={pointIndex}
-      >
-        {point}
-      </div>
-    )
-  );
+  const sliderPoints: any = content.autoparkPoints.map((point, pointIndex) => (
+    <div
+      className={
+        pointIndex === index ? style.slider__point__active : style.slider__point
+      }
+      key={pointIndex}
+    >
+      {point}
+    </div>
+  ));
 
-  const slider: any[] = content.autoparkSlider.map((auto) => (
+  const slider:any = content.autoparkSlider.map((auto:IAuto) => (
     <SwiperSlide key={auto.id}>
       <div className={style.slider__point}>
         <div className={style.point__text}>

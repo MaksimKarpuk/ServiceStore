@@ -3,7 +3,7 @@ import React from "react";
 interface ICheckboxProps {
   id: string;
   name: string;
-  onChange: any;
+  onChange: () => void;
   checkboxFormLabel: string;
   value: string[] | string;
 }
