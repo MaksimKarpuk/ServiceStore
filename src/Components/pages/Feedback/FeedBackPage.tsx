@@ -1,10 +1,9 @@
-
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, FC } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { store } from "../../../redux/reducers/store";
 import FeedbackView from "./FeedBackPageView";
 
-const FeedbackPage = () => {
+const FeedbackPage: FC = () => {
   const dispatch = useDispatch();
   const [feedbackValue, setfeedbackValue] = useState("");
   const feedbacks: string[] = useSelector(

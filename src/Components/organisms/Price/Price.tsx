@@ -2,8 +2,14 @@ import React from "react";
 import style from "./styles.module.scss";
 import content from "../../../data/content.json";
 import Button from "../../atoms/Button/Button";
-interface ICard {
-  [key: string]: string;
+interface IPriceCard {
+  id: string;
+  appartment: string;
+  car: string;
+  people: string;
+  time: string;
+  price: string;
+  btn: string;
 }
 
 const PriceView = () => {
@@ -15,7 +21,7 @@ const PriceView = () => {
           {content.price[0].subtitle}
         </div>
         <div className={style.container__cards}>
-          {content.price[0].cards.map((card: ICard) => (
+          {content.price[0].cards.map((card: IPriceCard) => (
             <div className={style.card__content} key={card.id}>
               <div className={style.content__appartment}>{card.appartment}</div>
               <div className={style.content__car}>{card.car}</div>

@@ -1,38 +1,12 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, FC } from "react";
 import { useFormik } from "formik";
 import { store } from "../../../redux/reducers/store";
 import { useDispatch } from "react-redux";
 import content from "../../../data/content.json";
 import FormView from "./FormView";
+import IFormContent from "../../../models";
 
-interface IObject {
-  [key: string]: string;
-}
-// interface IFormContent {
-//   title: string;
-//   subtitle: string;
-//   placeholderName: string;
-//   placeholderPhone: string;
-//   selectorRegionLabel: string;
-//   selectorCityLabel: string;
-//   selectorRegionOptions: IObject;
-//   selectorCityOptions: IObject;
-//   minsk: IObject;
-//   brest: IObject;
-//   gomel: IObject;
-//   grodno: IObject;
-//   vitebsk: IObject;
-//   mogilev: IObject;
-//   choise: IObject;
-//   radioLables: IObject;
-//   radioLegend: string;
-//   checkboxLables: IObject;
-//   checkboxLegend: string;
-//   formButtonText: string;
-//   checkboxFormLabel: string;
-// }
-
-interface IValue {
+interface IFormValues {
   name: string;
   phone: string;
   region: string;
@@ -42,18 +16,18 @@ interface IValue {
   checkbox: string;
 }
 
-const Form = () => {
+const Form: FC = () => {
   const dispatch = useDispatch();
   const [error, setError] = useState(false);
   //   const [options, setOptions] = useState([]);
-  const setOrder = (values: IValue) => {
+  const setOrder = (values: IFormValues) => {
     dispatch(store.actions.setOrder(values));
     setError(true);
     alert(
       `${values.name}, спасибо за оформление заказа. Информацию о заказе можете проверить на странице заказов.`
     );
   };
-  const formContent: any = content.formInfo[0];
+  const formContent: IFormContent = content.formInfo[0];
   const formik = useFormik({
     initialValues: {
       name: "",

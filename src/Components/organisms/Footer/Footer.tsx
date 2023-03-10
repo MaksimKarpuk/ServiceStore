@@ -1,26 +1,24 @@
-import React from "react";
+import React, { FC } from "react";
 import style from "./styles.module.scss";
 import vk from "../../../assets/icons/vk.svg";
 import fb from "../../../assets/icons/fb.svg";
 import insta from "../../../assets/icons/insta.svg";
 import youtoob from "../../../assets/icons/youtoob.svg";
 import content from "../../../data/content.json";
-
-interface ILink {
+interface IFooterLink {
   id: string;
   link: string;
   href: string;
 }
-
-interface IFooter {
+interface IFooterContent {
   logo: string;
   politic: string;
   social: string;
-  [key: string]: any;
+  footerLinks: IFooterLink[];
 }
 
-const FooterView = () => {
-  const footer: IFooter = content.footer[0];
+const FooterView: FC = () => {
+  const footer: IFooterContent = content.footer[0];
   return (
     <div className={style.footer}>
       <div className={style.footer__container}>
@@ -32,7 +30,7 @@ const FooterView = () => {
           <div className={style.info__social}>{footer.social}</div>
         </div>
         <nav className={style.footer__nav}>
-          {footer.footerLinks.map((link: ILink) => (
+          {footer.footerLinks.map((link: IFooterLink) => (
             <div className={style.nav__link} key={link.id}>
               <a href={link.href}>{link.link}</a>
             </div>

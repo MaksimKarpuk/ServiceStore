@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import style from "./styles.module.scss";
 import Input from "../../atoms/Input/Input";
 import Selector from "../../atoms/Selector/Selector";
@@ -6,73 +6,75 @@ import RadioBtn from "../../atoms/Radio/RadioBtn";
 import Checkboxes from "../../atoms/Checkboxes/Checkboxes";
 import Button from "../../atoms/Button/Button";
 import Checkbox from "../../atoms/Checkbox/Checkbox";
-
-interface IFormView {
+import IFormContent from "../../../models";
+interface IFormViewProps {
   error: boolean;
-  formContent: any;
+  formContent: IFormContent;
   formik: any;
-  setError: Function;
+  setError: (error: boolean) => void;
 }
 
-const FormView = ({ error, formContent, formik, setError }: IFormView) => {
+const FormView: FC<IFormViewProps> = (props) => {
   return (
     <div id="Заказать" className={style.form}>
       <div className={style.form__container}>
-        <div className={style.container__title}>{formContent.title}</div>
+        <div className={style.container__title}>{props.formContent.title}</div>
         <div className={style.container__box}>
           <div className={style.container__subtitle}>
-            {formContent.subtitle}
+            {props.formContent.subtitle}
           </div>
-          <form onSubmit={formik.handleSubmit}>
+          <form onSubmit={props.formik.handleSubmit}>
             <div
               className={
-                error ? style.container__error_input : style.container__input
+                props.error
+                  ? style.container__error_input
+                  : style.container__input
               }
             >
               <Input
-                placeholder={formContent.placeholderName}
+                placeholder={props.formContent.placeholderName}
                 id="name"
                 name="name"
-                onChange={formik.handleChange}
-                value={formik.values.name}
+                onChange={props.formik.handleChange}
+                value={props.formik.values.name}
               />
               <Input
-                placeholder={formContent.placeholderPhone}
+                placeholder={props.formContent.placeholderPhone}
                 id="phone"
                 name="phone"
-                onChange={formik.handleChange}
-                value={formik.values.phone}
+                onChange={props.formik.handleChange}
+                value={props.formik.values.phone}
               />
             </div>
             <div className={style.container__selector}>
               <Selector
                 id="region"
                 name="region"
-                onChange={formik.handleChange}
-                value={formik.values.region}
-                label={formContent.selectorRegionLabel}
-                options={formContent.selectorRegionOptions}
+                onChange={props.formik.handleChange}
+                value={props.formik.values.region}
+                label={props.formContent.selectorRegionLabel}
+                options={props.formContent.selectorRegionOptions}
               />
               <Selector
                 id="city"
                 name="city"
-                onChange={formik.handleChange}
-                value={formik.values.city}
-                label={formContent.selectorCityLabel}
+                onChange={props.formik.handleChange}
+                value={props.formik.values.city}
+                label={props.formContent.selectorCityLabel}
                 options={
-                  formik.values.region === "Минская"
-                    ? formContent.minsk
-                    : formik.values.region === "Брестcкая"
-                    ? formContent.brest
-                    : formik.values.region === "Гродненская"
-                    ? formContent.grodno
-                    : formik.values.region === "Гомельская"
-                    ? formContent.gomel
-                    : formik.values.region === "Витебская"
-                    ? formContent.vitebsk
-                    : formik.values.region === "Могилевская"
-                    ? formContent.mogilev
-                    : formContent.choise
+                  props.formik.values.region === "Минская"
+                    ? props.formContent.minsk
+                    : props.formik.values.region === "Брестcкая"
+                    ? props.formContent.brest
+                    : props.formik.values.region === "Гродненская"
+                    ? props.formContent.grodno
+                    : props.formik.values.region === "Гомельская"
+                    ? props.formContent.gomel
+                    : props.formik.values.region === "Витебская"
+                    ? props.formContent.vitebsk
+                    : props.formik.values.region === "Могилевская"
+                    ? props.formContent.mogilev
+                    : props.formContent.choise
                 }
               />
             </div>
@@ -80,48 +82,48 @@ const FormView = ({ error, formContent, formik, setError }: IFormView) => {
               <RadioBtn
                 id="radio"
                 name="radio"
-                onChange={formik.handleChange}
-                value={formik.values.radio}
-                radioLegend={formContent.radioLegend}
-                radioLables={formContent.radioLables}
+                onChange={props.formik.handleChange}
+                value={props.formik.values.radio}
+                radioLegend={props.formContent.radioLegend}
+                radioLables={props.formContent.radioLables}
               />
             </div>
             <div className={style.container__checkboxies}>
               <Checkboxes
                 id="checkboxes"
                 name="checkboxes"
-                onChange={formik.handleChange}
-                value={formik.values.checkboxes}
-                checkboxLegend={formContent.checkboxLegend}
-                checkboxLables={formContent.checkboxLables}
+                onChange={props.formik.handleChange}
+                value={props.formik.values.checkboxes}
+                checkboxLegend={props.formContent.checkboxLegend}
+                checkboxLables={props.formContent.checkboxLables}
               />
             </div>
             <div
               className={style.container__button}
               onClick={() => {
-                setError(true);
+                props.setError(true);
               }}
             >
               <Button
-                formButtonText={formContent.formButtonText}
-                checkbox={formik.values.checkbox}
-                name={formik.values.name}
-                phone={formik.values.phone}
+                formButtonText={props.formContent.formButtonText}
+                checkbox={props.formik.values.checkbox}
+                name={props.formik.values.name}
+                phone={props.formik.values.phone}
               />
             </div>
             <div
               className={
-                error
+                props.error
                   ? style.container__error_checkbox
                   : style.container__checkbox
               }
             >
               <Checkbox
-                checkboxFormLabel={formContent.checkboxFormLabel}
+                checkboxFormLabel={props.formContent.checkboxFormLabel}
                 id="checkbox"
                 name="checkbox"
-                onChange={formik.handleChange}
-                value={formik.values.checkbox}
+                onChange={props.formik.handleChange}
+                value={props.formik.values.checkbox}
               />
             </div>
           </form>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 
 interface IButtonProps {
   formButtonText: string;
@@ -7,13 +7,15 @@ interface IButtonProps {
   phone?: string;
 }
 
-const Button = ({ formButtonText, checkbox, name, phone }: IButtonProps) => {
+const Button: FC<IButtonProps> = (props) => {
   return (
     <input
       type={
-        checkbox === "" || name === "" || phone === "" ? "button" : "submit"
+        props.checkbox === "" || props.name === "" || props.phone === ""
+          ? "button"
+          : "submit"
       }
-      value={formButtonText}
+      value={props.formButtonText}
     />
   );
 };

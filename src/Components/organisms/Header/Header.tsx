@@ -1,15 +1,15 @@
-import React from "react";
+import React, { FC } from "react";
 import style from "./styles.module.scss";
 import { Link } from "react-router-dom";
 import content from "../../../data/content.json";
-interface ILink {
+interface IHeaderLink {
   id: string;
   link: string;
   href: string;
   to: string;
 }
 
-const Header = () => {
+const Header: FC = () => {
   const phone: string = content.headerInfo[0].phone;
   const logo: string = content.headerInfo[0].logo;
   return (
@@ -19,7 +19,7 @@ const Header = () => {
           <div className={style.container__logo}>{logo}</div>
         </Link>
         <div className={style.container__links}>
-          {content.headerLinks.map((link: ILink) => (
+          {content.headerLinks.map((link: IHeaderLink) => (
             <div className={style.container__link} key={link.id}>
               <Link to={link.to}>{link.link}</Link>
             </div>

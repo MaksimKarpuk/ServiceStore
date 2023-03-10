@@ -1,39 +1,32 @@
-import React from "react";
+import React, { FC } from "react";
 import style from "./styles.module.scss";
 
-interface IRadioBtnProps {
+interface IRadioLabel {
+  id: string;
+  name: string;
+}
+interface IRadioProps {
   id: string;
   name: string;
   onChange: () => void;
   value: string;
   radioLegend: string;
-  radioLables: [];
-}
-interface ILabel {
-  id: string;
-  name: string;
+  radioLables: IRadioLabel[];
 }
 
-const RadioBtnView = ({
-  id,
-  name,
-  onChange,
-  value,
-  radioLegend,
-  radioLables,
-}: IRadioBtnProps) => {
+const RadioBtnView: FC<IRadioProps> = (props) => {
   return (
     <div className={style.radio}>
-      <legend>{radioLegend}</legend>
+      <legend>{props.radioLegend}</legend>
       <div className={style.radioBtns}>
-        {radioLables.map((label: ILabel) => (
+        {props.radioLables.map((label: IRadioLabel) => (
           <div className={style.radioBtn} key={label.id}>
             <input
               type="radio"
               value={label.name}
-              name={name}
-              id={id}
-              onChange={onChange}
+              name={props.name}
+              id={props.id}
+              onChange={props.onChange}
             />
             <label htmlFor={label.name}>{label.name}</label>
           </div>

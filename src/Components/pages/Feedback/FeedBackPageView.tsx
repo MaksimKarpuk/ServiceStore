@@ -22,7 +22,6 @@ const FeedbackPageView = ({
   setfeedbackValue,
   feedbacks,
 }: IFeedBackView) => {
-  
   return (
     <div className={style.feedbacks}>
       <div className={style.feedbacks__container}>
@@ -38,7 +37,9 @@ const FeedbackPageView = ({
               name="feedback"
               id="feedback"
               value={feedbackValue}
-              onChange={(e) => setfeedbackValue(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+                setfeedbackValue(e.target.value)
+              }
             ></textarea>
             <div
               className={style.textArea__btn}

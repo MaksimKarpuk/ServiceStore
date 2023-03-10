@@ -1,24 +1,24 @@
-import React from "react";
+import React, { FC } from "react";
 import style from "./styles.module.scss";
 
 interface IInputProps {
   id: string;
   name: string;
-  onChange: ()=>void;
+  onChange: () => void;
   placeholder: string;
   value: string[] | string;
 }
 
-const Input = ({ id, name, onChange, placeholder, value }: IInputProps) => {
+const Input: FC<IInputProps> = (props) => {
   return (
     <input
       className={style.input}
       type="text"
-      id={id}
-      name={name}
-      placeholder={placeholder}
-      onChange={onChange}
-      value={value}
+      id={props.id}
+      name={props.name}
+      placeholder={props.placeholder}
+      onChange={props.onChange}
+      value={props.value}
     />
   );
 };

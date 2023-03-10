@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import style from "./styles.module.scss";
 interface ISelectorProps {
   id: string;
@@ -6,28 +6,26 @@ interface ISelectorProps {
   onChange: any;
   value: string;
   label: string;
-  options: [];
+  options: ISelectorItem[];
 }
-interface IItemValue {
+interface ISelectorItem {
   id: string;
   name: string;
 }
 
-const Selector = ({
-  id,
-  name,
-  onChange,
-  value,
-  label,
-  options,
-}: ISelectorProps) => {
+const Selector: FC<ISelectorProps> = (props) => {
   return (
     <div className={style.selector}>
-      <label className={style.selector__label} htmlFor={id}>
-        {label}
+      <label className={style.selector__label} htmlFor={props.id}>
+        {props.label}
       </label>
-      <select id={id} name={name} onChange={onChange} value={value}>
-        {options.map((item: IItemValue) => (
+      <select
+        id={props.id}
+        name={props.name}
+        onChange={props.onChange}
+        value={props.value}
+      >
+        {props.options.map((item: ISelectorItem) => (
           <option className={style.container__link} key={item.id}>
             {item.name}
           </option>

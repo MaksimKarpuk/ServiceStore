@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, FC } from "react";
 import { SwiperSlide } from "swiper/react";
 import Button from "../../atoms/Button/Button";
 import AutoParkView from "./AutoParkView";
@@ -9,14 +9,7 @@ import gruzovik from "../../../assets/images/autopark-gruzovik.png";
 import kabluk from "../../../assets/images/autopark-kabluk.png";
 import "swiper/scss";
 import "swiper/scss/navigation";
-
-// interface ISliderPoints {
-//   [index: number]: string;
-// }
-// interface ISlider {
-//   [key: string]: string;
-// }
-interface IAuto {
+interface IAutoSlider {
   id: string;
   title: string;
   width: string;
@@ -26,21 +19,24 @@ interface IAuto {
   src: string;
 }
 
-const AutoPark = () => {
-  const formButtonText: string = "Заказать";
-  let [index, setIndex] = useState(0);
-  const sliderPoints: any = content.autoparkPoints.map((point, pointIndex) => (
-    <div
-      className={
-        pointIndex === index ? style.slider__point__active : style.slider__point
-      }
-      key={pointIndex}
-    >
-      {point}
-    </div>
-  ));
+const AutoPark: FC = () => {
+  let [index, setIndex] = useState<number>(0);
+  const sliderPoints: JSX.Element[] = content.autoparkPoints.map(
+    (point: string, pointIndex: number) => (
+      <div
+        className={
+          pointIndex === index
+            ? style.slider__point__active
+            : style.slider__point
+        }
+        key={pointIndex}
+      >
+        {point}
+      </div>
+    )
+  );
 
-  const slider:any = content.autoparkSlider.map((auto:IAuto) => (
+  const slider: JSX.Element[] = content.autoparkSlider.map((auto: IAutoSlider) => (
     <SwiperSlide key={auto.id}>
       <div className={style.slider__point}>
         <div className={style.point__text}>
@@ -52,7 +48,7 @@ const AutoPark = () => {
             <li>{auto.massa}</li>
           </ul>
           <a href="#Заказать">
-            <Button formButtonText={formButtonText} />
+            <Button formButtonText={"Заказать"} />
           </a>
         </div>
         <div className={style.point__image}>

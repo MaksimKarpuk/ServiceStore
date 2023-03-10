@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import style from "./styles.module.scss";
 import banner from "../../../assets/images/banner.png";
 import Button from "../../atoms/Button/Button";
@@ -13,7 +13,7 @@ interface IBannerAdvantages {
   src: string;
 }
 
-const Banner = () => {
+const Banner: FC = () => {
   return (
     <nav className={style.banner}>
       <div className={style.banner__container}>

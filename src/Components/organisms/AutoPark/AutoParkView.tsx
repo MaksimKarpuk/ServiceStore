@@ -1,23 +1,22 @@
-import React from "react";
+import React, { FC } from "react";
 import style from "./styles.module.scss";
 import { Swiper } from "swiper/react";
 import { Navigation } from "swiper";
 import "swiper/scss";
 import "swiper/scss/navigation";
-// interface ISliderPoints {
-//   [index: number]: string;
-// }
-// interface ISlider {
-//   [key: string]: string;
-// }
 
-// interface AutoparkViewProps {
-//   slider: ISlider;
-//   setIndex: () => void;
-//   sliderPoints:ISliderPoints;
-//   index:number;
-// }
-const AutoParkView = ({ slider, setIndex, sliderPoints, index }: any) => {
+interface AutoparkViewProps {
+  slider: JSX.Element[];
+  setIndex: (index: number) => void;
+  sliderPoints: JSX.Element[];
+  index: number;
+}
+const AutoParkView: FC<AutoparkViewProps> = ({
+  slider,
+  setIndex,
+  sliderPoints,
+  index,
+}) => {
   return (
     <div id="Автопарк" className={style.autopark}>
       <div className={style.autopark__container}>

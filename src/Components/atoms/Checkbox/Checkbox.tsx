@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 
 interface ICheckboxProps {
   id: string;
@@ -7,23 +7,17 @@ interface ICheckboxProps {
   checkboxFormLabel: string;
   value: string[] | string;
 }
-const Checkbox = ({
-  id,
-  name,
-  onChange,
-  checkboxFormLabel,
-  value,
-}: ICheckboxProps) => {
+const Checkbox: FC<ICheckboxProps> = (props) => {
   return (
-    <label htmlFor={id}>
+    <label htmlFor={props.id}>
       <input
         type="checkbox"
-        id={id}
-        name={name}
-        onChange={onChange}
-        value={checkboxFormLabel}
+        id={props.id}
+        name={props.name}
+        onChange={props.onChange}
+        value={props.checkboxFormLabel}
       />
-      <div>{checkboxFormLabel}</div>
+      <div>{props.checkboxFormLabel}</div>
     </label>
   );
 };
