@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import content from "../../../data/content.json";
 import FormView from "./FormView";
 import IFormContent from "../../../models";
-
 interface IFormValues {
   name: string;
   phone: string;
@@ -18,8 +17,7 @@ interface IFormValues {
 
 const Form: FC = () => {
   const dispatch = useDispatch();
-  const [error, setError] = useState(false);
-  //   const [options, setOptions] = useState([]);
+  const [error, setError] = useState<boolean>(false);
   const setOrder = (values: IFormValues) => {
     dispatch(store.actions.setOrder(values));
     setError(true);
@@ -44,31 +42,6 @@ const Form: FC = () => {
       resetForm();
     },
   });
-  //   const getOptions = useCallback(() => {
-  //     switch (formik.values.region) {
-  //       case "Минская":
-  //         setOptions(formContent.minsk);
-  //         break;
-  //       case "Брестcкая":
-  //         setOptions(formContent.brest);
-  //         break;
-  //       case "Гродненская":
-  //         setOptions(formContent.grodno);
-  //         break;
-  //       case "Гомельская":
-  //         setOptions(formContent.gomel);
-  //         break;
-  //       case "Витебская":
-  //         setOptions(formContent.vitebsk);
-  //         break;
-  //       case "Могилевская":
-  //         setOptions(formContent.mogilev);
-  //         break;
-  //       default:
-  //         return formContent.choise;
-  //     }
-  //     console.log("Hello");
-  //   }, [formik.values.region]);
   return (
     <FormView
       error={error}

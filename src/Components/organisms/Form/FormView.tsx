@@ -24,27 +24,37 @@ const FormView: FC<IFormViewProps> = (props) => {
             {props.formContent.subtitle}
           </div>
           <form onSubmit={props.formik.handleSubmit}>
-            <div
-              className={
-                props.error
-                  ? style.container__error_input
-                  : style.container__input
-              }
-            >
-              <Input
-                placeholder={props.formContent.placeholderName}
-                id="name"
-                name="name"
-                onChange={props.formik.handleChange}
-                value={props.formik.values.name}
-              />
-              <Input
-                placeholder={props.formContent.placeholderPhone}
-                id="phone"
-                name="phone"
-                onChange={props.formik.handleChange}
-                value={props.formik.values.phone}
-              />
+            <div className={style.container__inputs}>
+              <div
+                className={
+                  props.error && !props.formik.values.name
+                    ? style.container__error_input
+                    : style.container__input
+                }
+              >
+                <Input
+                  placeholder={props.formContent.placeholderName}
+                  id="name"
+                  name="name"
+                  onChange={props.formik.handleChange}
+                  value={props.formik.values.name}
+                />
+              </div>
+              <div
+                className={
+                  props.error && !props.formik.values.phone
+                    ? style.container__error_input
+                    : style.container__input
+                }
+              >
+                <Input
+                  placeholder={props.formContent.placeholderPhone}
+                  id="phone"
+                  name="phone"
+                  onChange={props.formik.handleChange}
+                  value={props.formik.values.phone}
+                />
+              </div>
             </div>
             <div className={style.container__selector}>
               <Selector
@@ -113,7 +123,7 @@ const FormView: FC<IFormViewProps> = (props) => {
             </div>
             <div
               className={
-                props.error
+                props.error && !props.formik.values.checkbox
                   ? style.container__error_checkbox
                   : style.container__checkbox
               }

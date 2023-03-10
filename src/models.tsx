@@ -2,7 +2,6 @@ interface IObject {
   id: string;
   name: string;
 }
-
 export default interface IFormContent {
   title: string;
   subtitle: string;
@@ -25,5 +24,5 @@ export default interface IFormContent {
   checkboxLegend: string;
   formButtonText: string;
   checkboxFormLabel: string;
-  
 }
+

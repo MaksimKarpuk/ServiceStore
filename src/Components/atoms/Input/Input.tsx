@@ -1,6 +1,4 @@
 import React, { FC } from "react";
-import style from "./styles.module.scss";
-
 interface IInputProps {
   id: string;
   name: string;
@@ -12,7 +10,6 @@ interface IInputProps {
 const Input: FC<IInputProps> = (props) => {
   return (
     <input
-      className={style.input}
       type="text"
       id={props.id}
       name={props.name}

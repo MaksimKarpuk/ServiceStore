@@ -22,18 +22,21 @@
   @include H16;
   margin-bottom: 3rem;
 }
-.container__input {
+.container__inputs {
   display: flex;
   gap: 4.5rem;
   margin-bottom: 4rem;
-}
-.container__error_input {
-  display: flex;
-  gap: 4.5rem;
-  margin-bottom: 4rem;
-  input {
-    padding: 1rem;
-    border: 0.0625rem solid red;
+  .container__input {
+    max-width: 18.75rem;
+    width: 100%;
+    padding: 1rem 0;
+    border-bottom: 0.0625rem solid black;
+  }
+  .container__error_input {
+    max-width: 18.75rem;
+    width: 100%;
+    padding: 1rem 0;
+    border-bottom: 0.0625rem solid red;
   }
 }
 .container__selector {
@@ -72,9 +75,9 @@
   }
 }
 .container__error_checkbox {
-  border: 0.1rem solid red;
+  border-bottom: 0.0625rem solid red;
   display: inline-block;
-  padding: 1rem;
+  padding-bottom: 1rem;
   label {
     display: flex;
     align-items: center;
