@@ -1,9 +1,9 @@
-import React from "react";
+import React, { FC } from "react";
 import style from "./styles.module.scss";
 
 interface IOrderPageViewProps {
-  deleteItem: Function;
-  orders: [];
+  deleteItem: (id: number) => void;
+  orders: IOrder[];
 }
 interface IOrder {
   id: number;
@@ -16,21 +16,21 @@ interface IOrder {
   checbox: string;
 }
 
-const OrderPageView = ({ deleteItem, orders }: IOrderPageViewProps) => {
+const OrderPageView: FC<IOrderPageViewProps> = (props) => {
   return (
     <div className={style.container}>
-      {orders.length === 0 && (
+      {props.orders.length === 0 && (
         <div className={style.emptyOrders}>
           Заказы отсутствуют. Заказа можно добавить на главной странице заполнив
           форму.
         </div>
       )}
       <div className={style.orders}>
-        {orders.map((order: IOrder) => (
+        {props.orders.map((order: IOrder) => (
           <div className={style.order} key={order.id}>
             <div className={style.order__title}>Заказ № {order.id}</div>
             <div className={style.order__info}>
-              Заявитель: {order.name}. Адрес: {order.region} область, город{" "}
+              Заявитель: {order.name}. Адрес: {order.region} область, город
               {order.city}
             </div>
             <div className={style.order__phone}>
@@ -51,7 +51,7 @@ const OrderPageView = ({ deleteItem, orders }: IOrderPageViewProps) => {
             </div>
             <div
               className={style.order__deleteBtn}
-              onClick={() => deleteItem(order.id)}
+              onClick={() => props.deleteItem(order.id)}
             >
               Удалить заказ
             </div>

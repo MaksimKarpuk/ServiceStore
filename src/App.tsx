@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { Route, Routes } from "react-router-dom";
 import style from "./styles.module.scss";
 import Header from "./Components/organisms/Header/Header";
@@ -8,7 +8,7 @@ import OrderPage from "./Components/pages/Orders/OrderPage";
 import FeedbackPage from "./Components/pages/Feedback/FeedBackPage";
 import { SlArrowUp } from "react-icons/sl";
 
-const App = () => {
+const App: FC = () => {
   return (
     <div className={style.app}>
       <Header />

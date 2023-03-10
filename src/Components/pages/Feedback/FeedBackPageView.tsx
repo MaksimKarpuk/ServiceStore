@@ -1,49 +1,43 @@
-import React from "react";
+import React, { FC } from "react";
 import style from "./styles.module.scss";
-import { RiDeleteBin5Line } from "react-icons/ri";
-import uuid from "react-uuid";
 import DeleteFeedbackBtn from "../../atoms/DeleteFeedbackBtn/DeleteFeedbackBtn";
 
-interface IFeedBackView {
+interface IFeedBackViewProps {
   feedbackValue: string;
-  addFeedback: Function;
+  addFeedback: (feedbackValue: string) => void;
   setVisibleArea: () => void;
   feedbackVesible: boolean;
-  deleteFeedback: Function;
+  deleteFeedback: (id: number) => void;
   setfeedbackValue: Function;
-  feedbacks: string[];
+  feedbacks: IFeedback[];
 }
-const FeedbackPageView = ({
-  feedbackValue,
-  addFeedback,
-  setVisibleArea,
-  feedbackVesible,
-  deleteFeedback,
-  setfeedbackValue,
-  feedbacks,
-}: IFeedBackView) => {
+interface IFeedback {
+  id: number;
+  value: string;
+}
+const FeedbackPageView: FC<IFeedBackViewProps> = (props) => {
   return (
     <div className={style.feedbacks}>
       <div className={style.feedbacks__container}>
         <div className={style.container__empty}>
-          {feedbacks.length === 0 && (
+          {props.feedbacks.length === 0 && (
             <div className={style.empty__message}>Отзывы отсутствуют</div>
           )}
         </div>
 
-        {feedbackVesible && (
+        {props.feedbackVesible && (
           <div className={style.container__textArea}>
             <textarea
               name="feedback"
               id="feedback"
-              value={feedbackValue}
+              value={props.feedbackValue}
               onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-                setfeedbackValue(e.target.value)
+                props.setfeedbackValue(e.target.value)
               }
             ></textarea>
             <div
               className={style.textArea__btn}
-              onClick={() => addFeedback(feedbackValue)}
+              onClick={() => props.addFeedback(props.feedbackValue)}
             >
               Добавить
             </div>
@@ -51,19 +45,22 @@ const FeedbackPageView = ({
         )}
         <div className={style.container__feedback}>
           <div className={style.feedback__item}>
-            {feedbacks.map((fb: any, index: number) => (
-              <div className={style.item} key={index}>
-                <div className={style.item__text}>{fb.payload}</div>
+            {props.feedbacks.map((fb: IFeedback) => (
+              <div className={style.item} key={fb.id}>
+                <div className={style.item__text}>{fb.value}</div>
                 <DeleteFeedbackBtn
-                  deleteFeedback={deleteFeedback}
-                  index={index}
+                  deleteFeedback={props.deleteFeedback}
+                  id={fb.id}
                 />
               </div>
             ))}
           </div>
         </div>
-        {!feedbackVesible && (
-          <div className={style.container__addBtn} onClick={setVisibleArea}>
+        {!props.feedbackVesible && (
+          <div
+            className={style.container__addBtn}
+            onClick={props.setVisibleArea}
+          >
             Добавить отзыв
           </div>
         )}

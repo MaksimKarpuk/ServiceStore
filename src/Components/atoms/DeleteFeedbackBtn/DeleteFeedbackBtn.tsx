@@ -3,15 +3,15 @@ import { RiDeleteBin5Line } from "react-icons/ri";
 import style from "./styles.module.scss";
 
 interface IDeleteBtnProps {
-  deleteFeedback: Function;
-  index: number;
+  deleteFeedback: (id: number) => void;
+  id: number;
 }
 
 const DeleteFeedbackBtn: FC<IDeleteBtnProps> = (props) => {
   return (
     <div
       className={style.item__deleteBtn}
-      onClick={() => props.deleteFeedback(props.index)}
+      onClick={() => props.deleteFeedback(props.id)}
     >
       <RiDeleteBin5Line className={style.deleteBtn} />
     </div>
