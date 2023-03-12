@@ -12,7 +12,7 @@ interface IOrder {
   city: string;
   phone: string;
   radio: string;
-  checkboxes: [];
+  checkboxes: string[];
   checbox: string;
 }
 
@@ -39,16 +39,18 @@ const OrderPageView: FC<IOrderPageViewProps> = (props) => {
             <div className={style.order__delivery}>
               Способ оплаты: {order.radio}
             </div>
-            <div className={style.order__service}>
-              <div className={style.order__service_title}>
-                Дополнительные услуги:
+            {order.checkboxes && (
+              <div className={style.order__service}>
+                <div className={style.order__service_title}>
+                  Дополнительные услуги:
+                </div>
+                <ul className={style.order__service_item}>
+                  {order.checkboxes.map((service: string, index: number) => (
+                    <li key={index}>{service}</li>
+                  ))}
+                </ul>
               </div>
-              <ul className={style.order__service_item}>
-                {order.checkboxes.map((service: string, index: number) => (
-                  <li key={index}>{service}</li>
-                ))}
-              </ul>
-            </div>
+            )}
             <div
               className={style.order__deleteBtn}
               onClick={() => props.deleteItem(order.id)}

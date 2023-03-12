@@ -12,6 +12,8 @@ interface IFormViewProps {
   formContent: IFormContent;
   formik: any;
   setError: (error: boolean) => void;
+  changeChecked?: () => void;
+  checked?: boolean;
 }
 
 const FormView: FC<IFormViewProps> = (props) => {
@@ -116,14 +118,11 @@ const FormView: FC<IFormViewProps> = (props) => {
             >
               <Button
                 formButtonText={props.formContent.formButtonText}
-                checkbox={props.formik.values.checkbox}
-                name={props.formik.values.name}
-                phone={props.formik.values.phone}
               />
             </div>
             <div
               className={
-                props.error && !props.formik.values.checkbox
+                props.error && !props.checked
                   ? style.container__error_checkbox
                   : style.container__checkbox
               }
@@ -134,6 +133,8 @@ const FormView: FC<IFormViewProps> = (props) => {
                 name="checkbox"
                 onChange={props.formik.handleChange}
                 value={props.formik.values.checkbox}
+                changeChecked={props.changeChecked}
+                checked={props.checked}
               />
             </div>
           </form>

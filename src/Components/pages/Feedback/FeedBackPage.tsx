@@ -25,9 +25,6 @@ const FeedbackPage: FC = () => {
   const feedbackVesible: boolean = useSelector(
     (state: IState) => state.store.feedbackVesible
   );
-  useEffect(() => {
-    console.log(feedbacks);
-  });
   const addFeedback = (value: string) => {
     dispatch(store.actions.setFeedback(value));
     setfeedbackValue("");

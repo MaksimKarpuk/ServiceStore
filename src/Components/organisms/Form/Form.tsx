@@ -16,16 +16,24 @@ interface IFormValues {
 }
 
 const Form: FC = () => {
+  const formContent: IFormContent = content.formInfo[0];
   const dispatch = useDispatch();
   const [error, setError] = useState<boolean>(false);
+  const [checked, setChecked] = useState<boolean>(false);
+
+  const changeChecked = () => {
+    setChecked((prev) => !prev);
+  };
+
   const setOrder = (values: IFormValues) => {
     dispatch(store.actions.setOrder(values));
     setError(true);
     alert(
-      `${values.name}, спасибо за оформление заказа. Информацию о заказе можете проверить на странице заказов.`
+      `${values.name}, спасибо за оформление заказа.
+       Информацию о заказе можете проверить на странице заказов.`
     );
   };
-  const formContent: IFormContent = content.formInfo[0];
+
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -37,9 +45,12 @@ const Form: FC = () => {
       checkbox: "",
     },
     onSubmit: (values, { resetForm }) => {
-      setOrder(values);
-      setError(false);
-      resetForm();
+      if (checked && values.name && values.phone) {
+        setOrder(values);
+        setError(false);
+        setChecked(false);
+        resetForm();
+      }
     },
   });
   return (
@@ -48,6 +59,8 @@ const Form: FC = () => {
       formContent={formContent}
       formik={formik}
       setError={setError}
+      changeChecked={changeChecked}
+      checked={checked}
     />
   );
 };

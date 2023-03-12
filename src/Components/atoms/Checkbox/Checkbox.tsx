@@ -5,6 +5,8 @@ interface ICheckboxProps {
   onChange: () => void;
   checkboxFormLabel: string;
   value: string[] | string;
+  changeChecked?: () => void;
+  checked?: boolean;
 }
 const Checkbox: FC<ICheckboxProps> = (props) => {
   return (
@@ -13,8 +15,9 @@ const Checkbox: FC<ICheckboxProps> = (props) => {
         type="checkbox"
         id={props.id}
         name={props.name}
-        onChange={props.onChange}
+        onChange={props.changeChecked}
         value={props.checkboxFormLabel}
+        checked={props.checked}
       />
       <div>{props.checkboxFormLabel}</div>
     </label>
