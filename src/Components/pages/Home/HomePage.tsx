@@ -4,6 +4,7 @@ import AutoPark from "../../organisms/AutoPark/AutoPark";
 import Form from "../../organisms/Form/Form";
 import Price from "../../organisms/Price/Price";
 import RoadMap from "../../organisms/RoadMap/RoadMap";
+import FormikComponent from "../../organisms/Formik/Formik";
 
 const HomePage = () => {
   return (
@@ -12,6 +13,7 @@ const HomePage = () => {
       <RoadMap />
       <Price />
       <AutoPark />
+      <FormikComponent/>
       <Form />
     </div>
   );
